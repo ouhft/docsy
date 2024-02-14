@@ -1,0 +1,22 @@
+@import "nhs-colour/nhs-colour";
+
+// This class exists only to confirm visually in the rendered output that this file has been successfully included
+.deepOrangeFlibble { 
+    color: #fff;
+}
+
+// Primary and related to Primary
+$primary: $clr-deep-orange !default;
+$primary-light: $clr-deep-orange-a200 !default;
+$light: $clr-deep-orange-400 !default;
+$dark: $clr-deep-orange-700 !default;
+
+$link-color: $clr-deep-orange-a400 !default;
+$link-decoration: none !default;
+$link-hover-color: $clr-deep-orange-a700 !default;
+$link-hover-decoration: underline !default;
+
+
+// Secondary and related to secondary
+$secondary: $clr-purple !default;
+$code-color: $clr-purple-700 !default;

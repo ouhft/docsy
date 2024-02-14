@@ -1,0 +1,22 @@
+@import "nhs-colour/nhs-colour";
+
+// This class exists only to confirm visually in the rendered output that this file has been successfully included
+.greenFlibble { 
+    color: #fff;
+}
+
+// Primary and related to Primary
+$primary: $clr-green !default;
+$primary-light: $clr-green-a200 !default;
+$light: $clr-green-400 !default;
+$dark: $clr-green-700 !default;
+
+$link-color: $clr-green-300 !default;
+$link-decoration: none !default;
+$link-hover-color: $clr-green-a700 !default;
+$link-hover-decoration: underline !default;
+
+
+// Secondary and related to secondary
+$secondary: $clr-purple !default;
+$code-color: $clr-purple-700 !default;
