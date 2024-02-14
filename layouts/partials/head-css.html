@@ -8,7 +8,7 @@
     "enableSourceMap" (not hugo.IsProduction)
     "includePaths" (slice $configColourPath)
 }}
-
+<meta title="DEBUG" value="{{ $configColourPath }}">
 {{ if not hugo.IsProduction }}
 {{/* Note the missing postCSS. This makes it snappier to develop in Chrome, but makes it look sub-optimal in other browsers. */}}
 {{ $css := resources.Get $scssMain | toCSS (dict "enableSourceMap" true) }}

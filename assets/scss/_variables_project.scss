@@ -17,27 +17,27 @@ $google_font_family: "Lato:300,300i,400,400i,700,700i" !default;
 // Primary colours are set in config now!
 // References `/assets/scss/nhs-colour/docsy/$COLOUR$/_config-colours.scss`
 // This links to layouts/partials/head-css.html which will insert the correct base path to find the correct _config-colours.scss
-@import "config-colours";
+// @import "config-colours";
 
 // TODO: Move secondary colours to a config based solution similar to the primary one above
 
 // Fixed elements
-$success: $clr-light-green !default;
-$info: $clr-teal !default;
-$warning: $clr-deep-orange !default;
-$danger: $clr-red !default;
-$blue: $clr-indigo-200 !default;
-$orange: $clr-orange !default;
+// $success: $clr-light-green !default;
+// $info: $clr-teal !default;
+// $warning: $clr-deep-orange !default;
+// $danger: $clr-red !default;
+// $blue: $clr-indigo-200 !default;
+// $orange: $clr-orange !default;
 
 // Universal to all combinations
-$white: $clr-white !default;
-$gray-100: $clr-grey-100 !default;
-$gray-200: $clr-grey-200 !default;
-$gray-300: $clr-grey-300 !default;
-$gray-400: $clr-grey-400 !default;
-$gray-500: $clr-grey-500 !default;
-$gray-600: $clr-grey-600 !default;
-$gray-700: $clr-grey-700 !default;
-$gray-800: $clr-grey-800 !default;
-$gray-900: $clr-grey-900 !default;
-$black: $clr-black !default;
+// $white: $clr-white !default;
+// $gray-100: $clr-grey-100 !default;
+// $gray-200: $clr-grey-200 !default;
+// $gray-300: $clr-grey-300 !default;
+// $gray-400: $clr-grey-400 !default;
+// $gray-500: $clr-grey-500 !default;
+// $gray-600: $clr-grey-600 !default;
+// $gray-700: $clr-grey-700 !default;
+// $gray-800: $clr-grey-800 !default;
+// $gray-900: $clr-grey-900 !default;
+// $black: $clr-black !default;
