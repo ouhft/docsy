@@ -17,7 +17,7 @@ $google_font_family: "Lato:300,300i,400,400i,700,700i" !default;
 // Primary colours are set in config now!
 // References `/assets/scss/nhs-colour/docsy/$COLOUR$/_config-colours.scss`
 // This links to layouts/partials/head-css.html which will insert the correct base path to find the correct _config-colours.scss
-// @import "config-colours";
+@import "config-colours";
 
 // TODO: Move secondary colours to a config based solution similar to the primary one above
 
