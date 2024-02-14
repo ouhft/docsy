@@ -1,0 +1,34 @@
+# OUH Document Build task (Direct CI) - OUH-Hugo: Updated 29-08-2023. v1.7.2
+pages:
+  image: $CI_REGISTRY/www/pages-ouh-hugo:dde9fc6e
+  stage: deploy
+
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    DOCSY_PATH: docs/themes/docsy
+
+  before_script:
+    - cd $DOCSY_PATH
+    - pwd
+    - git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+    - git fetch --all
+    - git switch ouhft
+    - cd ../../
+    - npm install
+    - hugo env
+
+  script:
+    - hugo
+    - npm run pagefind
+
+  after_script:
+    - cd docs/
+    - mv static/_pagefind ../public/
+
+  artifacts:
+    paths:
+    - public
+    expire_in: 20 mins
+
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'  # EDIT ME for your project's published branch, typically "main"
