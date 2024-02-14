@@ -1,0 +1,22 @@
+@import "nhs-colour/nhs-colour";
+
+// This class exists only to confirm visually in the rendered output that this file has been successfully included
+.tealFlibble { 
+    color: #fff;
+}
+
+// Primary and related to Primary
+$primary: $clr-teal !default;
+$primary-light: $clr-teal-a200 !default;
+$light: $clr-teal-400 !default;
+$dark: $clr-teal-700 !default;
+
+$link-color: $clr-teal-a400 !default;
+$link-decoration: none !default;
+$link-hover-color: $clr-teal-a700 !default;
+$link-hover-decoration: underline !default;
+
+
+// Secondary and related to secondary
+$secondary: $clr-purple !default;
+$code-color: $clr-purple-700 !default;

@@ -1,0 +1,22 @@
+@import "nhs-colour/nhs-colour";
+
+// This class exists only to confirm visually in the rendered output that this file has been successfully included
+.redFlibble {
+    color: #fff;
+}
+
+// Primary and related to Primary
+$primary: $clr-red !default;
+$primary-light: $clr-red-a200 !default;
+$light: $clr-red-400 !default;
+$dark: $clr-red-700 !default;
+
+$link-color: $clr-red-a400 !default;
+$link-decoration: none !default;
+$link-hover-color: $clr-red-a700 !default;
+$link-hover-decoration: underline !default;
+
+
+// Secondary and related to secondary
+$secondary: $clr-purple !default;
+$code-color: $clr-purple-700 !default;

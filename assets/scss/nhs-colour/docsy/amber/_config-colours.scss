@@ -1,0 +1,22 @@
+@import "nhs-colour/nhs-colour";
+
+// This class exists only to confirm visually in the rendered output that this file has been successfully included
+.amberFlibble { 
+    color: #fff;
+}
+
+// Primary and related to Primary
+$primary: $clr-amber !default;
+$primary-light: $clr-amber-a200 !default;
+$light: $clr-amber-400 !default;
+$dark: $clr-amber-700 !default;
+
+$link-color: $clr-amber-a400 !default;
+$link-decoration: none !default;
+$link-hover-color: $clr-amber-a700 !default;
+$link-hover-decoration: underline !default;
+
+
+// Secondary and related to secondary
+$secondary: $clr-purple !default;
+$code-color: $clr-purple-700 !default;

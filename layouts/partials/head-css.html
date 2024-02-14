@@ -1,5 +1,14 @@
 
 {{ $scssMain := "scss/main.scss"}}
+
+{{ $configColour := (or .Site.Params.ui.primary_colour "blue") }}
+{{ $configColourPath := (print "assets/scss/nhs-colour/docsy/" $configColour "/") }}
+{{ $options := dict
+    "transpiler" "libsass"
+    "enableSourceMap" (not hugo.IsProduction)
+    "includePaths" (slice $configColourPath)
+}}
+
 {{ if not hugo.IsProduction }}
 {{/* Note the missing postCSS. This makes it snappier to develop in Chrome, but makes it look sub-optimal in other browsers. */}}
 {{ $css := resources.Get $scssMain | toCSS (dict "enableSourceMap" true) }}
