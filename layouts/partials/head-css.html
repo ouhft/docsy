@@ -3,12 +3,6 @@
 
 {{ $configColour := (or .Site.Params.ui.primary_colour "blue") }}
 {{ $configColourPath := (print "assets/scss/nhs-colour/docsy/" $configColour "/") }}
-{{/*  {{ $options := dict
-    "transpiler" "libsass"
-    "enableSourceMap" (not hugo.IsProduction)
-    "includePaths" (slice $configColourPath)
-}}  */}}
-<meta title="DEBUG" value="{{ $configColourPath }}">
 
 {{ if not hugo.IsProduction }}
 {{/* Note the missing postCSS. This makes it snappier to develop in Chrome, but makes it look sub-optimal in other browsers. */}}
