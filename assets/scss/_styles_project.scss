@@ -5,3 +5,30 @@ Nothing defined here. The Hugo project that uses this theme can override Bootstr
 assets/scss/_styles_project.scss
 
 */
+// Increase size of brandmark to make it readable
+.td-navbar {
+    .navbar-brand {
+        svg {
+            margin-right: 30px;
+            height: 40px;
+        }
+    }
+}
+
+// Make footnotes more distinguishable and less emphasis on them
+.footnotes {
+    // background-color: $td-sidebar-bg-color;
+    padding-bottom: 0.5em;
+
+    >hr:after {
+        content: "Footnotes";
+        color: $secondary;
+        margin-left: 1.4rem;
+        padding-top: 0.5rem;
+    }
+
+    ol {
+        margin-top: 2rem;
+        font-size: small;
+    }
+}
