@@ -4,6 +4,7 @@ pages:
   stage: deploy
 
   before_script:
+    - cd docs/
     - pwd
     - hugo env  # Confirm expected build
     - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
