@@ -32,3 +32,9 @@ assets/scss/_styles_project.scss
         font-size: x-small;
     }
 }
+
+// Blocks spacing (mainly for when using Blocks on docs type pages)
+.td-main main section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
