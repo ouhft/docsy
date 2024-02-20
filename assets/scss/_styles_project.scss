@@ -64,3 +64,10 @@ assets/scss/_styles_project.scss
     width: 100%;
     display: block;
 }
+
+// Blocks spacing (mainly for when using Blocks on docs type pages)
+.td-main main section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    max-width: 80%;
+}
