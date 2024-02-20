@@ -1,0 +1,12 @@
+{{ $page := $.Site.GetPage "section" (string (.Get "folder_name")) }}
+<ul class="image-gallery">
+    {{ range $page.Resources.ByType "image" }}
+    {{- $imagetitle := index (split .Name ".") 0 -}}
+    <li>
+        <a href='{{ .RelPermalink }}' title='{{ $imagetitle }}' class='lightbox-image'>
+            <img src='{{ (.Fill "300x300 q50").Permalink }}' alt='{{ $imagetitle }}' title='{{ $imagetitle }}'>
+            <span>{{ .Name }}</span>
+        </a>
+    </li>
+    {{ end }}
+</ul>
