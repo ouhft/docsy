@@ -43,6 +43,7 @@ markup:
     renderer:
       unsafe: true
   highlight:
+    noClasses: false
     style: tango
 
 params:
@@ -70,6 +71,7 @@ params:
   search:
     # algolia:
   ui:
+    showLightDarkModeMenu: true
     sidebar_cache_limit: 10
     sidebar_menu_compact: true
     sidebar_menu_foldable: false
