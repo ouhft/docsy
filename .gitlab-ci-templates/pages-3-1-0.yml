@@ -1,0 +1,27 @@
+# OUH Document Build task (Direct CI) - OUH-Hugo: Updated 05-06-2024. v3.1.0
+pages:
+  image: $CI_REGISTRY/www/pages-ouh-hugo:36a4b004
+  stage: deploy
+  tags: ["pages"]
+
+  before_script:
+    - cd docs/
+    - pwd  # Confirm expected build location
+    - hugo env  # Confirm expected build environment
+    - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
+
+  script:
+    - hugo
+    # - npx -y pagefind
+
+  after_script:
+    # - cd docs/
+    # - mv static/pagefind ../public/
+
+  artifacts:
+    paths:
+    - public
+    expire_in: 20 mins
+
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'  # EDIT ME for your project's published branch, typically "main"
