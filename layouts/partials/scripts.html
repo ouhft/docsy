@@ -119,3 +119,50 @@ for (let c of containers) {
 }
 </script>
 {{ end -}}
+
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+    function waitForElm(selector) {
+        return new Promise((resolve) => {
+          if (document.querySelector(selector)) {
+            return resolve(document.querySelector(selector));
+          }
+      
+          const observer = new MutationObserver((mutations) => {
+            if (document.querySelector(selector)) {
+              resolve(document.querySelector(selector));
+              observer.disconnect();
+            }
+          });
+      
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+        });
+      }
+
+
+  // get value search parameter
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const searchString = urlParams.get("q");
+
+  // initialize Pagefind UI
+  window.addEventListener('DOMContentLoaded', (event) => {
+    let pagefind = new PagefindUI({ element: "#pagefind-search", showSubResults: true  });
+    if (searchString) { 
+      pagefind.triggerSearch(searchString);
+    }
+  });
+
+  // setting the focus into the generated INPUT field as it appears
+  waitForElm(".pagefind-ui__search-input").then((elm) => {
+    elm.focus();
+  });  
+
+
+    {{/*  window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search", showSubResults: true });
+    });  */}}
+</script>
