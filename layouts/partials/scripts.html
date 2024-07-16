@@ -125,7 +125,7 @@ for (let c of containers) {
 {{ end -}}
 
 {{ define "pagefind/scripts" -}}
-<script src="/pagefind/pagefind-ui.js"></script>
+<script src='{{ "pagefind/pagefind-ui.js" | relURL }}'></script>
 <script>
     // Solution suggested by https://kiko.io/post/Pagefind-UI-and-URL-Parameters/
     function waitForElm(selector) {
@@ -170,7 +170,7 @@ for (let c of containers) {
     }
 </script>
 <script type="module">
-    await import('/pagefind/pagefind-highlight.js');
+    await import('{{ "pagefind/pagefind-highlight.js" | relURL }}');
     new PagefindHighlight({ highlightParam: "highlight" });
 </script>
 {{ end -}}

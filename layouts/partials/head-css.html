@@ -42,5 +42,5 @@ snappier to develop in Chrome, but makes it look sub-optimal in other browsers.
 {{- /**/ -}}
 
 {{ if and .Site.Params.search (isset .Site.Params.search "pagefind") -}}
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<link href='{{ "pagefind/pagefind-ui.css" | relURL }}' rel="stylesheet">
 {{ end -}}
