@@ -1,17 +1,13 @@
 # OUH Document Build task (Direct CI) - OUH-Hugo: Updated 16-07-2024. v3.2.0
 pages:
-  image: $CI_REGISTRY/www/pages-ouh-hugo:6c90e207
+  image: $CI_REGISTRY/www/pages-ouh-hugo:472b2f8c
   stage: deploy
   tags: ["pages"]
 
   before_script:
-    # - ls -la /pre-docs
+    # Rather than do an external npm install, copy the pre-loaded files into the docs folder
     - mv /pre-docs/node_modules docs/
     - cd docs/
-    # - ls -la
-    # - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
-    # - pwd  # Confirm expected build location
-    # - hugo env  # Confirm expected build environment
 
   script:
     - export HUGO_CACHEDIR="/pre-docs/cache/hugo"
