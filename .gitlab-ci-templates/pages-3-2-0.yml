@@ -1,6 +1,6 @@
 # OUH Document Build task (Direct CI) - OUH-Hugo: Updated 16-07-2024. v3.2.0
 pages:
-  image: $CI_REGISTRY/www/pages-ouh-hugo:5032b2a6
+  image: $CI_REGISTRY/www/pages-ouh-hugo:6c90e207
   stage: deploy
   tags: ["pages"]
 
@@ -17,7 +17,7 @@ pages:
     - hugo --minify
 
   after_script:
-    - cd docs/
+    - cd /
     - pwd
     - ls -la
     - /usr/local/bin/pagefind --site "public"
