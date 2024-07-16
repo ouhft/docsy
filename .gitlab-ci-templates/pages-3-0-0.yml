@@ -11,9 +11,9 @@ pages:
 
   script:
     - hugo
-    # - npx -y pagefind
+    - npx -y pagefind --site "../public"
 
-  after_script:
+  # after_script:
     # - cd docs/
     # - mv static/pagefind ../public/
 
