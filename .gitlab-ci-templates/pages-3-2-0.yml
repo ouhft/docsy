@@ -15,9 +15,9 @@ pages:
 
   script:
     - export HUGO_CACHEDIR=/pre-docs/cache/hugo
-    - ls -la $HUGO_CACHEDIR/modules/*
+    - ls -la /pre-docs/cache/hugo/modules/*
     - hugo --minify --templateMetrics --logLevel debug
-    - ls -la $HUGO_CACHEDIR/modules/*
+    - ls -la /pre-docs/cache/hugo/modules/*
 
   after_script:
     # - pwd
