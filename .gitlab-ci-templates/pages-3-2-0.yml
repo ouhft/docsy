@@ -6,15 +6,18 @@ pages:
 
   before_script:
     - cd docs/
+    - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
     - pwd  # Confirm expected build location
     - hugo env  # Confirm expected build environment
-    # - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
 
   script:
     - hugo
 
   after_script:
-    - ./pagefind --site "public"
+    - pwd
+    - ls -la
+    - ls -la ../
+    - ../pagefind --site "public"
 
   artifacts:
     paths:
