@@ -14,12 +14,12 @@ pages:
     # - hugo env  # Confirm expected build environment
 
   script:
-    - export HUGO_CACHEDIR=/pre-docs/cache/hugo
+    - export HUGO_CACHEDIR="/pre-docs/cache/hugo"
     - echo "Pre-build Cache"
-    - ls -la /pre-docs/cache/hugo/*/*/*
-    - hugo --minify --templateMetrics --logLevel debug
+    - du -s $HUGO_CACHEDIR
+    - hugo --minify --gc --templateMetrics --logLevel debug --ignoreCache
     - echo "Post-build Cache"
-    - ls -la /pre-docs/cache/hugo/*/*/*
+    - du -s $HUGO_CACHEDIR
 
   after_script:
     # - pwd
