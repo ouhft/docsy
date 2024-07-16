@@ -100,6 +100,10 @@ window.markmap = {
 {{ if and .Site.Params.search (isset .Site.Params.search "algolia") -}}
   {{ template "algolia/scripts" .Site.Params.search.algolia -}}
 {{ end -}}
+
+{{ if and .Site.Params.search (isset .Site.Params.search "pagefind") -}}
+  {{ template "pagefind/scripts" .Site.Params.search.pagefind -}}
+{{ end -}}
 <script src='{{ "js/tabpane-persist.js" | relURL }}'></script>
 {{ partial "hooks/body-end.html" . -}}
 
@@ -120,49 +124,53 @@ for (let c of containers) {
 </script>
 {{ end -}}
 
+{{ define "pagefind/scripts" -}}
 <script src="/pagefind/pagefind-ui.js"></script>
 <script>
+    // Solution suggested by https://kiko.io/post/Pagefind-UI-and-URL-Parameters/
     function waitForElm(selector) {
         return new Promise((resolve) => {
-          if (document.querySelector(selector)) {
-            return resolve(document.querySelector(selector));
-          }
-      
-          const observer = new MutationObserver((mutations) => {
             if (document.querySelector(selector)) {
-              resolve(document.querySelector(selector));
-              observer.disconnect();
+                return resolve(document.querySelector(selector));
             }
-          });
-      
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-          });
+
+            const observer = new MutationObserver((mutations) => {
+                if (document.querySelector(selector)) {
+                    resolve(document.querySelector(selector));
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+            });
         });
-      }
-
-
-  // get value search parameter
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const searchString = urlParams.get("q");
-
-  // initialize Pagefind UI
-  window.addEventListener('DOMContentLoaded', (event) => {
-    let pagefind = new PagefindUI({ element: "#pagefind-search", showSubResults: true  });
-    if (searchString) { 
-      pagefind.triggerSearch(searchString);
     }
-  });
-
-  // setting the focus into the generated INPUT field as it appears
-  waitForElm(".pagefind-ui__search-input").then((elm) => {
-    elm.focus();
-  });  
 
 
-    {{/*  window.addEventListener('DOMContentLoaded', (event) => {
-        new PagefindUI({ element: "#search", showSubResults: true });
-    });  */}}
+    // get value search parameter
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const searchString = urlParams.get("q");
+
+    // initialize Pagefind UI
+    window.addEventListener('DOMContentLoaded', (event) => {
+        let pagefind = new PagefindUI({ element: "#pagefind-search", showSubResults: true, highlightParam: "highlight" });
+        if (searchString) {
+            pagefind.triggerSearch(searchString);
+        }
+    });
+
+    // setting the focus into the generated INPUT field as it appears, but only if we've used the querystring
+    if (searchString) {
+        waitForElm(".pagefind-ui__search-input").then((elm) => {
+            elm.focus();
+        });
+    }
 </script>
+<script type="module">
+    await import('/pagefind/pagefind-highlight.js');
+    new PagefindHighlight({ highlightParam: "highlight" });
+</script>
+{{ end -}}

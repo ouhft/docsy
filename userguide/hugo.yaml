@@ -60,13 +60,15 @@ params:
   time_format_blog: Monday, January 02, 2006
   time_format_default: January 2, 2006
   rss_sections: [blog] # TODO: drop since this is the default
-  gcs_engine_id: 011217106833237091527:la2vtv2emlw
+  # gcs_engine_id: 011217106833237091527:la2vtv2emlw
   offlineSearch: false
   offlineSearchSummaryLength: 70
   offlineSearchMaxResults: 10
   prism_syntax_highlighting: false
-  search:
+  search: 
     # algolia:
+    pagefind:
+      multisite: true
   ui:
     showLightDarkModeMenu: true
     sidebar_cache_limit: 10
