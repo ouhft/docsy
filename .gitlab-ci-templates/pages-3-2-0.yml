@@ -5,22 +5,22 @@ pages:
   tags: ["pages"]
 
   before_script:
-    - ls -la /pre-docs
+    # - ls -la /pre-docs
     - mv /pre-docs/node_modules docs/
     - cd docs/
-    - ls -la
+    # - ls -la
     # - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
-    - pwd  # Confirm expected build location
-    - hugo env  # Confirm expected build environment
+    # - pwd  # Confirm expected build location
+    # - hugo env  # Confirm expected build environment
 
   script:
     - export HUGO_CACHEDIR=/pre-docs/cache/hugo
-    - hugo --minify
-    - pwd
+    - hugo --minify --templateMetrics --logLevel debug
+    - ls -la $HUGO_CACHEDIR
 
   after_script:
-    - pwd
-    - ls -la
+    # - pwd
+    # - ls -la
     - /usr/local/bin/pagefind --site "public"
 
   artifacts:
