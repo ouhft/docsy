@@ -17,7 +17,8 @@ pages:
     - export HUGO_CACHEDIR="/pre-docs/cache/hugo"
     - echo "Pre-build Cache"
     - du -s $HUGO_CACHEDIR
-    - hugo --minify --gc --templateMetrics --logLevel debug --ignoreCache
+    - hugo mod graph
+    - hugo --minify --gc --templateMetrics --logLevel debug
     - echo "Post-build Cache"
     - du -s $HUGO_CACHEDIR
 
