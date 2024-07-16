@@ -1,6 +1,6 @@
 # OUH Document Build task (Direct CI) - OUH-Hugo: Updated 16-07-2024. v3.2.0
 pages:
-  image: $CI_REGISTRY/www/pages-ouh-hugo:472b2f8c
+  image: $CI_REGISTRY/www/pages-ouh-hugo:162cba8d
   stage: deploy
   tags: ["pages"]
 
@@ -11,16 +11,10 @@ pages:
 
   script:
     - export HUGO_CACHEDIR="/pre-docs/cache/hugo"
-    - echo "Pre-build Cache"
-    - du -s $HUGO_CACHEDIR
-    - hugo mod graph
-    - hugo --minify --gc --templateMetrics --logLevel debug
-    - echo "Post-build Cache"
-    - du -s $HUGO_CACHEDIR
+    - hugo --minify
 
   after_script:
-    # - pwd
-    # - ls -la
+    # This defaults back to base build location, aka `../docs/`
     - /usr/local/bin/pagefind --site "public"
 
   artifacts:
