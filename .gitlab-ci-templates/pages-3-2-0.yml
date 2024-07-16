@@ -14,11 +14,11 @@ pages:
     - hugo env  # Confirm expected build environment
 
   script:
-    - EXPORT HUGO_CACHEDIR=/pre-docs/cache/hugo
+    - export HUGO_CACHEDIR=/pre-docs/cache/hugo
     - hugo --minify
+    - pwd
 
   after_script:
-    - cd /
     - pwd
     - ls -la
     - /usr/local/bin/pagefind --site "public"
