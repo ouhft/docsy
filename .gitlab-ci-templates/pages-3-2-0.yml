@@ -1,16 +1,20 @@
-# OUH Document Build task (Direct CI) - OUH-Hugo: Updated 14-02-2024. v3.0.0
+# OUH Document Build task (Direct CI) - OUH-Hugo: Updated 16-07-2024. v3.2.0
 pages:
-  image: $CI_REGISTRY/www/pages-ouh-hugo:32095399
+  image: $CI_REGISTRY/www/pages-ouh-hugo:10506ba7
   stage: deploy
+  tags: ["pages"]
 
   before_script:
     - cd docs/
     - pwd  # Confirm expected build location
     - hugo env  # Confirm expected build environment
-    - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
+    # - npm install -D autoprefixer postcss-cli postcss  # Needed for Docsy build in local dir
 
   script:
     - hugo
+
+  after_script:
+    - ./pagefind --site "public"
 
   artifacts:
     paths:
