@@ -1,6 +1,6 @@
-# OUH Document Build task (Direct CI) - OUH-Hugo: Updated 17-07-2024. v3.2.1
+# OUH Document Build task (Direct CI) - OUH-Hugo: Updated 22-07-2024. v3.2.1
 pages:
-  image: $CI_REGISTRY/www/www.pages.oxnet.nhs.uk:e792f97a
+  image: $CI_REGISTRY/www/www.pages.oxnet.nhs.uk/pages-build:1b7bc729
   stage: deploy
   tags: ["pages"]
 
