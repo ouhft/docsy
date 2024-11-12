@@ -599,6 +599,16 @@ params:
 
 If you're creating your own site and want to add a page using this template, add a `/community/_index.md` file in your content root directory. If you've copied the example site and *don't* want a community page, just delete the `/content/en/community/` directory in your project repo.
 
+By default, Docsy layouts assume that your project's contributing page is found
+at `<baseURL>/docs/contribution-guidelines`. To specify another URL, add it to
+the front matter of `/community/_index.md` as illustrated next. The URL can be
+an external URL or a local path:
+
+```yaml
+params:
+  contributingUrl: docs/contributing/
+```
+
 ## Adding static content
 
 You may want to serve some non-Hugo-built content along with your site: for example, if you have generated reference docs using Doxygen, Javadoc, or other doc generation tools.
@@ -609,48 +619,23 @@ You can also use this directory for other files used by your project, including 
 
 ## RSS feeds
 
-Hugo will, by default, create an RSS feed for the home page and any section. For the main RSS feed you can control which sections to include by setting a site param in your `hugo.toml`/`hugo.yaml`/`hugo.json`. This is the default configuration:
+Hugo will, by default, create an RSS feed for the home page and any section.
+To disable all RSS feeds, add the following to your
+`hugo.toml`/`hugo.yaml`/`hugo.json`:
 
 {{< tabpane >}}
 {{< tab header="Configuration file:" disabled=true />}}
 {{< tab header="hugo.toml" lang="toml" >}}
-[params]
-rss_sections = ["blog"]
-{{< /tab >}}
-{{< tab header="hugo.yaml" lang="yaml" >}}
-params:
-  rss_sections: [blog]
-{{< /tab >}}
-{{< tab header="hugo.json" lang="json" >}}
-{
-  "params": {
-    "rss_sections": [
-      "blog"
-      ]
-  }
-}
-{{< /tab >}}
-{{< /tabpane >}}
-
-To disable all RSS feeds, add the following to your `hugo.toml`/`hugo.yaml`/`hugo.json`:
-
-{{< tabpane >}}
-{{< tab header="Configuration file:" disabled=true />}}
-{{< tab header="hugo.toml" lang="toml" >}}
-[params]
 disableKinds = ["RSS"]
 {{< /tab >}}
 {{< tab header="hugo.yaml" lang="yaml" >}}
-params:
-  disableKinds: [RSS]
+disableKinds: [RSS]
 {{< /tab >}}
 {{< tab header="hugo.json" lang="json" >}}
 {
-  "params": {
-    "disableKinds": [
-      "RSS"
-      ]
-  }
+  "disableKinds": [
+    "RSS"
+  ]
 }
 {{< /tab >}}
 {{< /tabpane >}}
