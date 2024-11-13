@@ -18,7 +18,7 @@ Useful links:
 [releases]: https://github.com/google/docsy/releases
 [tags]: https://github.com/google/docsy/tags
 
-## 0.10.1 or 0.11.0
+## 0.11.1 or 0.12.0
 
 > ### UNRELEASED: this planned version is still under development
 
@@ -28,13 +28,30 @@ For the full list of changes, see the [0.x.y] release notes.
 
 **New**:
 
-- Support for Right-To-Left (RLT) languages is reintroduced via [Bootstrap's
-  base support for RTL][bs-rtl].
-
 **Other changes**:
 
 [0.x.y]: https://github.com/google/docsy/releases/latest?FIXME=v0.X.Y
+
+## 0.11.0
+
+For the full list of changes, see the [0.11.0] release notes.
+
+**New**:
+
+- Support for Right-To-Left (RLT) languages is reintroduced via [Bootstrap's
+  support for RTL][bs-rtl]. For details, see [Right-to-left languages][rtl].
+- The URL to your project's contribution guidelines is configurable. For
+  details, see [Adding a community page].
+- When a section's sidebar entries are truncated because there are more than
+  [params.ui.sidebar_menu_truncate] section entries, a warning is issued.
+
+[0.11.0]: https://github.com/google/docsy/releases/v0.11.0
 [bs-rtl]: https://getbootstrap.com/docs/5.3/getting-started/rtl/
+[Adding a community page]:
+  https://www.docsy.dev/docs/adding-content/content/#adding-a-community-page
+[params.ui.sidebar_menu_truncate]:
+  https://www.docsy.dev/docs/adding-content/navigation/#section-menu-options
+[rtl]: https://www.docsy.dev/docs/language/#right-to-left-languages
 
 ## 0.10.0
 
@@ -138,10 +155,11 @@ For the full list of changes, see the [0.8.0] release notes.
 
 **Breaking changes**:
 
-- Docsy is packaged as a **single Hugo module** ([#1120]).
-  - For details, see [Use Docsy as a Hugo Module].
-- **Important**: non-Hugo-module projects should read the [Docsy NPM install
-  side-effect] note.
+- Docsy is packaged as a **single Hugo module** ([#1120]). For details, see [Use
+  Docsy as a Hugo Module].
+- **Important**: non-Hugo-module projects should be aware of the [Docsy
+  NPM install side-effect]. Also, for guidance on Hugo-reported "failed to load modules"
+  error, see [Docsy as an NPM package].
 - **Page feedback**, or [User feedback]:
   - In support of projects configuring analytics outside of Docsy, feedback
     functionality is enabled regardless of whether
@@ -160,6 +178,8 @@ For the full list of changes, see the [0.8.0] release notes.
 [#1726]: https://github.com/google/docsy/pull/1726
 [#1727]: https://github.com/google/docsy/pull/1727
 [0.8.0]: https://github.com/google/docsy/releases/v0.8.0
+[Docsy as an NPM package]:
+  http://localhost:1313/docs/get-started/other-options/#option-3-docsy-as-an-npm-package
 [Docsy NPM install side-effect]:
   https://docsy.dev/docs/get-started/other-options/#docsy-npm-install-side-effect
 [Use Docsy as a Hugo Module]:
