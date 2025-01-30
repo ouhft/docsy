@@ -20,17 +20,36 @@ Useful links:
 
 ## 0.11.1 or 0.12.0
 
-> ### UNRELEASED: this planned version is still under development
+> **UNRELEASED: this planned version is still under development**
 
 For the full list of changes, see the [0.x.y] release notes.
 
-**Breaking changes**:
+**Potential breaking change**:
+
+- Removes shortcode `figure`, hugo's built-in shortcode `figure` can/will be
+  used instead
 
 **New**:
 
+- **[Breadcrumb navigation]** support has been enhanced and adjusted:
+  - You can now disable breadcrumbs for an entire project, or individual pages
+    or sections by setting `ui.breadcrumb_disable` to true. For details, see
+    [Breadcrumb navigation].
+  - **Blog** pages now also have breadcrumbs by default ([#1788]).
+  - Index-page single-element breadcrumb lists are hidden by default ([#2160]).
+
 **Other changes**:
 
+- **Blog** section index page content and title used to be ignored, they are now
+  displayed ([#1787]). To recover the old behavior use the following style
+  override: `.td-section.td-blog .td-content { display: none; }`.
+
 [0.x.y]: https://github.com/google/docsy/releases/latest?FIXME=v0.X.Y
+[#1787]: https://github.com/google/docsy/issues/1787
+[#1788]: https://github.com/google/docsy/issues/1788
+[#2160]: https://github.com/google/docsy/pull/2160
+[Breadcrumb navigation]:
+  https://www.docsy.dev/docs/adding-content/navigation/#breadcrumb-navigation
 
 ## 0.11.0
 
@@ -106,8 +125,8 @@ this release are listed next.
   [path_base_for_github_subdir]. Projects will need to adjust the value of
   [path_base_for_github_subdir] to be relative to the file's physical location.
 
-- Class names to disable [repository links] were misnamed with a suffix of the form
-  `--KIND`. The new suffix is `__KIND`. For details, see [Disabling links].
+- Class names to disable [repository links] were misnamed with a suffix of the
+  form `--KIND`. The new suffix is `__KIND`. For details, see [Disabling links].
 
 - **Heading self-link** support has been reimplemented and projects must now
   explicitly enable the feature. For details, see [Heading self links].
@@ -157,9 +176,9 @@ For the full list of changes, see the [0.8.0] release notes.
 
 - Docsy is packaged as a **single Hugo module** ([#1120]). For details, see [Use
   Docsy as a Hugo Module].
-- **Important**: non-Hugo-module projects should be aware of the [Docsy
-  NPM install side-effect]. Also, for guidance on Hugo-reported "failed to load modules"
-  error, see [Docsy as an NPM package].
+- **Important**: non-Hugo-module projects should be aware of the [Docsy NPM
+  install side-effect]. Also, for guidance on Hugo-reported "failed to load
+  modules" error, see [Docsy as an NPM package].
 - **Page feedback**, or [User feedback]:
   - In support of projects configuring analytics outside of Docsy, feedback
     functionality is enabled regardless of whether
@@ -179,7 +198,7 @@ For the full list of changes, see the [0.8.0] release notes.
 [#1727]: https://github.com/google/docsy/pull/1727
 [0.8.0]: https://github.com/google/docsy/releases/v0.8.0
 [Docsy as an NPM package]:
-  http://localhost:1313/docs/get-started/other-options/#option-3-docsy-as-an-npm-package
+  https://docsy.dev/docs/get-started/other-options/#option-3-docsy-as-an-npm-package
 [Docsy NPM install side-effect]:
   https://docsy.dev/docs/get-started/other-options/#docsy-npm-install-side-effect
 [Use Docsy as a Hugo Module]:
@@ -255,7 +274,8 @@ For the full list of changes, see the [0.7.0] release notes.
 - **Shortcodes**:
   - Now using Hugo's native support for processing HTML & markdown, not file
     extension testing. ([#906])
-  - Dropped support for pre-Hugo-0.54.x behavior of `{{% %}}`. ([#939])
+  - Dropped support for pre-Hugo-0.54.x behavior of [shortcodes with markdown],
+    `{{%/*...*/%}}`. ([#939])
   - `blocks/section`: **default** and accepted values of the `type` argument
     have changed! For details, see [blocks/section] ([#1472]).
   - **Card shortcodes** ([#1376])]:
@@ -268,6 +288,8 @@ For the full list of changes, see the [0.7.0] release notes.
 
 [chroma-docsy]:
   https://www.docsy.dev/docs/adding-content/lookandfeel/#code-highlighting-with-chroma
+[shortcodes with markdown]:
+  https://gohugo.io/content-management/shortcodes/#shortcodes-with-markdown
 
 - **Detection of draw.io diagrams** is now **disabled** by default [#1185]
 
@@ -339,12 +361,13 @@ CHANGES** are documented below.
   as text.
 - **Display logo by default**. Most projects show their logo in the navbar. In
   support of this majority, Docsy now displays a logo by default. For details on
-  how to hide the logo (or your brand name), see [Styling your project logo and name].
+  how to hide the logo (or your brand name), see [Styling your project logo and
+  name].
 - **Upgraded Bootstrap** to v4.6.2 from v4.6.1, resulting in some style changes
   (such as an adjustment in the size of `small`). For details, see [v4.6.2
   release notes].
-- **[Upgraded FontAwesome]** to v6 from v5. While many icons were renamed, the v5
-  names still work. For details about icon renames and more, see [What's
+- **[Upgraded FontAwesome]** to v6 from v5. While many icons were renamed, the
+  v5 names still work. For details about icon renames and more, see [What's
   changed].
 - **Search-box**: the HTML structure and class names have changed, due to the
   Font Awesome upgrade, for both online and offline search. This may affect your
@@ -452,9 +475,10 @@ For the full list of changes, see the [0.2.0] release notes.
 
 **New**:
 
-- Add official Docsy support for [Hugo modules]. Many thanks to the dedicated and
-  patient efforts of [@deining], who researched, experimented, and implemented this
-  feature. Thanks to [@deining] and [@LisaFC] for the doc updates.
+- Add official Docsy support for [Hugo modules]. Many thanks to the dedicated
+  and patient efforts of [@deining], who researched, experimented, and
+  implemented this feature. Thanks to [@deining] and [@LisaFC] for the doc
+  updates.
 
   For details, see
   [Migrate to Hugo Modules](https://www.docsy.dev/docs/updating/convert-site-to-module/).
@@ -466,9 +490,10 @@ For the full list of changes, see the [0.2.0] release notes.
 
 <!-- ENTRY TEMPLATE ------------------------------------------------------
 
+```
 ## 0.X.Y
 
-> ### UNRELEASED: this planned version is still under development
+> **UNRELEASED: this planned version is still under development**
 
 For the full list of changes, see the [0.x.y] release notes.
 
@@ -481,5 +506,6 @@ For the full list of changes, see the [0.x.y] release notes.
 **Other changes**:
 
 [0.x.y]: https://github.com/google/docsy/releases/latest?FIXME=v0.X.Y
+```
 
 ---------------------------------------------------------------------------->
