@@ -1,0 +1,26 @@
+# OUH Document Build task (Direct CI) - OUH-Hugo: Updated 09-06-2025. v3.2.2
+pages:
+  image: $CI_REGISTRY/www/www.pages.oxnet.nhs.uk/pages-build:b8f58587
+  stage: deploy
+  tags: ["pages"]
+
+  before_script:
+    # Rather than do an external npm install, copy the pre-loaded files into the docs folder
+    - mv /pre-docs/node_modules docs/
+    - cd docs/
+
+  script:
+    - export HUGO_CACHEDIR="/pre-docs/cache/hugo"
+    - hugo --minify
+
+  after_script:
+    # This defaults back to base build location, aka `../docs/`
+    - /usr/local/bin/pagefind --site "public"
+
+  artifacts:
+    paths:
+    - public
+    expire_in: 20 mins
+
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'  # EDIT ME for your project's published branch, typically "main"
